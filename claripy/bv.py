@@ -123,6 +123,11 @@ class BVV(BackendObject):
     def __div__(self, other):
         return self // other
 
+    @normalize_types
+    @compare_bits
+    def __pow__(self, o):
+        return BVV(self.value ** o.value, self.bits)
+
     #
     # Reverse arithmetic stuff
     #
